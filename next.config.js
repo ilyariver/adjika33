@@ -5,6 +5,11 @@ const nextConfig = {
   images: {
     domains: ['api.adjika33.ru'],
   },
+  ignorePatterns: [
+    'jest.config.js',
+    'lib',
+    '**/*.tsx',
+  ],
 }
 
 module.exports = nextConfig
