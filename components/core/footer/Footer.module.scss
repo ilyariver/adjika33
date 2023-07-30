@@ -1,0 +1,129 @@
+@import 'public/styles/scss/config/vars.scss';
+
+.footer {
+  padding: 75px 0 0;
+
+  .footer__container {
+    display: flex;
+  }
+}
+
+.logo {
+  margin-right: 150px;
+}
+
+.link {
+  & > svg {
+    filter: drop-shadow(0 0 4px red);
+    transition: transform 0.2s cubic-bezier(.5, 0, .5, 3);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.column {
+  &:not(:last-child) {
+    margin-right: 150px;
+  }
+  &_title {
+    margin-bottom: 54px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  &_list {
+
+  }
+
+  &_item {
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.link_item {
+  display: inline-block;
+  transition: color 0.1s ease-in-out, transform 0.2s cubic-bezier(.5, 0, .5, 3);
+
+  &:hover {
+    color: $grayColor;
+    transform: scale(1.02);
+  }
+}
+
+.location,
+.phone,
+.mail,
+.margin {
+  padding-left: 40px;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.location {
+  background-image: url("#{$IMG_PATH}/location.svg");
+}
+
+.phone {
+  background-image: url("#{$IMG_PATH}/phone0.svg");
+
+  &:hover {
+    background-image: url("#{$IMG_PATH}/phone.svg");
+  }
+}
+
+.mail {
+  background-image: url("#{$IMG_PATH}/mail.svg");
+}
+
+.margin {
+
+}
+
+.left {
+
+}
+
+.right {
+
+}
+
+.socials {
+
+}
+
+.social {
+  display: flex;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.soc_item {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 36px;
+  height: 36px;
+  transition: transform 0.2s cubic-bezier(.5, 0, .5, 3);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.vk {
+  background-image: url("#{$IMG_PATH}/vk.svg");
+}
+
+.instagram {
+  background-image: url("#{$IMG_PATH}/instagram.svg");
+}
+
+.telegram {
+  background-image: url("#{$IMG_PATH}/telegram.svg");
+}

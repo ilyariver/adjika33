@@ -1,0 +1,42 @@
+@import 'public/styles/scss/config/functions.scss';
+
+.section {
+  padding: 40px 0 50px;
+
+  &:hover {
+    .img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  column-gap: rem(30);
+}
+
+.left {
+  flex-basis: 70%;
+}
+
+.right {
+  flex-basis: 30%;
+}
+
+.title {
+  margin-bottom: 30px;
+  line-height: 1.1;
+  font-size: 40px;
+}
+
+.text {
+  line-height: 2.2;
+}
+
+.img {
+  border-radius: 30px;
+  filter: grayscale(100%);
+  transition: filter 0.5s cubic-bezier(.5, 0, .5, 3);
+}

@@ -1,0 +1,96 @@
+@import 'public/styles/scss/config/vars.scss';
+@import 'public/styles/scss/config/mixins.scss';
+
+.header {
+  position: relative;
+  padding: 0 0 100px;
+  background-image: url("#{$IMG_PATH}/back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+
+  & .header__container {
+    padding: 50px 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.6643032212885154) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("#{$IMG_PATH}/pattern.png");
+    background-repeat: no-repeat;
+  }
+}
+
+.top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 40px;
+  z-index: 2;
+}
+
+.left_list {
+  display: flex;
+}
+
+.item {
+
+}
+
+.right {
+  margin-left: auto;
+}
+
+.phone {
+
+}
+
+.body {
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+.big_text {
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.logo {
+  position: relative;
+
+  & > svg {
+    margin: 0 auto;
+    //filter: drop-shadow(0 0 1px rgb(255, 255, 255)) drop-shadow(0 0 20px #f10000);
+  }
+}
+
+.order_btn {
+  width: 150px;
+}

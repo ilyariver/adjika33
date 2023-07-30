@@ -1,0 +1,54 @@
+@import '/public/styles/scss/config/vars.scss';
+@import '/public/styles/scss/config/functions.scss';
+
+.products {
+
+}
+
+.product {
+  padding: 20px;
+  background-color: darken($firstAccentColor, 2%);
+  width: 100%;
+  border-radius: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.content {
+
+}
+
+.img {
+  width: 250px;
+  border-radius: 5px;
+}
+
+.descr {
+
+}
+
+.title {
+
+}
+
+.text {
+
+}
+
+.left {
+
+}
+
+.cost {
+  font-size: 20px;
+}
+
+.remove {
+
+}
+
+.count {
+
+}

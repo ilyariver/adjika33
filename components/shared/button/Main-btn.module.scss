@@ -1,0 +1,16 @@
+.button {
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+  height: 48px;
+  padding: 0 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  z-index: 5;
+  transition: background-color 0.2s ease-in-out, transform 0.2s cubic-bezier(.5, 0, .5, 3);
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}

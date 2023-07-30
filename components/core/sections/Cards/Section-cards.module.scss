@@ -1,0 +1,16 @@
+@import 'public/styles/scss/config/functions.scss';
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1600px;
+  margin: 0 auto;
+  padding: 40px;
+  column-gap: rem(0.5);
+}
+
+
+.empty_card {
+  width: calc(100% / 4.2);
+}

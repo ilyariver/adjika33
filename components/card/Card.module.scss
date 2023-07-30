@@ -1,0 +1,45 @@
+@import 'public/styles/scss/config/mixins.scss';
+
+.card {
+  width: calc(100% / 4.2);
+
+  &:nth-last-child(n+5) {
+    margin-bottom: 100px;
+  }
+}
+
+.top {
+  cursor: pointer;
+}
+
+.img {
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.middle {
+  margin-bottom: 25px;
+}
+
+.name {
+  margin-bottom: 15px;
+  font-size: 20px;
+  @include lineClamp(2);
+}
+
+.description {
+  min-height: 70px;
+  font-size: 15px;
+  @include lineClamp(3);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cost {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
