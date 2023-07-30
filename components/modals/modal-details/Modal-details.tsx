@@ -1,9 +1,8 @@
-'use client'
-
 import { FC, useState } from 'react'
 import style from './Modal-details.module.scss'
 import { Philosopher } from 'next/font/google'
 import ButtonOrder from '../../../components/shared/button-order/Button-order'
+import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 const ModalDetails: FC = () => {
@@ -35,7 +34,7 @@ const ModalDetails: FC = () => {
 
 					<div className={style.wrap}>
 						<div className={style.image_wrap}>
-							<img src="/images/food.jpg" alt="" className={style.image}/>
+							<Image width={540} height={404} src="/images/food.jpg" alt="еда" className={style.image} />
 						</div>
 
 						<div className={style.description}>

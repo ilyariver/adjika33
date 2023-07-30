@@ -24,6 +24,29 @@ const Cart: FC = () => {
 		setSelectedProducts(selectedProducts.filter(item => item.id !== id))
 	}
 
+	const callbackIncreaseDecrease = (id: number, type: 'increase' | 'decrease') => {
+		debugger
+		let first = true
+		let test = []
+		switch (type) {
+			case 'increase':
+				if (first) {
+					test = selectedProducts.filter(item => {
+						return item.id !== id
+					})
+				}
+
+				setSelectedProducts(test)
+				first = false
+
+				break
+			case 'decrease':
+				break
+			default:
+				break
+		}
+	}
+
 	return (
 		<div className={style.cart}>
 			<div className="cart__container">
@@ -41,6 +64,7 @@ const Cart: FC = () => {
 				{selectedProducts.length !== 0 && <>
 					<CardsInCart
 					  callbackRemove={callbackRemove}
+					  callbackIncreaseDecrease={callbackIncreaseDecrease}
 					  selectedProducts={selectedProducts}
 					  className="mb-10"
 					/>

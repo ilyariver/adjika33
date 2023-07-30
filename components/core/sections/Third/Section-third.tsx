@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import style from './Section-third.module.scss'
 import { Philosopher } from 'next/font/google'
+import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 const SectionThird: FC = (data) => {
@@ -11,7 +12,7 @@ const SectionThird: FC = (data) => {
 			<div className="section__container">
 				<div className={style.wrap}>
 					<div className={style.left}>
-						<img src={image} className={style.img} />
+						<Image width="800" height="800" src={image} className={style.img}  alt="наше блюдо" />
 					</div>
 
 					<div className={style.right}>

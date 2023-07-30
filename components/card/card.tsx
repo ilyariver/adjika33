@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import style from './Card.module.scss'
 import { Philosopher } from 'next/font/google'
 import ButtonOrder from '../../components/shared/button-order/Button-order'
+import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
@@ -11,7 +11,7 @@ const Card = ({ name, description, cost, image, onClick }) => {
 	return (
 		<div className={style.card}>
 			<div className={style.top}>
-				<img src={image} alt="Шашлык машлык" className={style.img }/>
+				<Image width={540} height={404} src={image} alt="Шашлык машлык" className={style.img } />
 			</div>
 			<div className={style.middle}>
 				<h3 className={`${style.name} ${philosopher.className}`}>{ name }</h3>

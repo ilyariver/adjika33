@@ -8,32 +8,41 @@ import useLocalStorage from '../hooks/use-local-storage'
 
 const Home: NextPage = ({ data }) => {
     const [count, setCount] = useState(0)
+    const [currentProductsList, setCurrentProductsList] = useLocalStorage('currentProductsList', [])
     const [selectedProducts, setSelectedProducts, remove] = useLocalStorage('selectedProducts', [])
-  function setTest(products) {
-      setCount(products.length)
-  }
+    const [productCards, setProductCards] = useState(currentProductsList)
 
-  useEffect(() => {
-      // setCount(selectedProducts.length)
-  }, [])
+    const { productCard } = data.productsList
+    const sendToCart = id => {
+        setSelectedProducts([...selectedProducts, currentProductsList.find(item => item.id === id)])
+    }
 
-  return (
-      <>
-        <SectionFirst { ...data.firstSection } />
-        <SectionCards postData={data.productsList} setTest={setTest} count={count}/>
-        <SectionThird { ...data.thirdSection } />
+    const saveToLocalStorage = () => {
+        setCurrentProductsList(productCards)
+    }
 
-        {/*<ModalDetails />*/}
-        {(count !== 0) && (<CartButton count={count}/>)}
-        <button className="fixed bottom-5 right-5" onClick={() =>
-            {
-                setCount(0)
-                setSelectedProducts([])
-                remove()
-            }
-        }>X</button>
-      </>
-  )
+    useEffect(() => {
+        saveToLocalStorage()
+        setProductCards(productCard)
+    }, [])
+
+    return (
+        <>
+            <SectionFirst { ...data.firstSection } />
+            <SectionCards currentProductsList={currentProductsList} sendToCart={sendToCart} />
+            <SectionThird { ...data.thirdSection } />
+
+            {/*<ModalDetails />*/}
+            {(selectedProducts.length !== 0) && (<CartButton count={selectedProducts.length}/>)}
+            <button className="fixed bottom-5 right-5" onClick={() =>
+                {
+                    setCount(0)
+                    setSelectedProducts([])
+                    remove()
+                }
+            }>X</button>
+        </>
+    )
 }
 
 export default Home;

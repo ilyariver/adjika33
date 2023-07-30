@@ -1,10 +1,11 @@
 import style from './cards-in-cart.module.scss'
 import { Philosopher } from 'next/font/google'
-import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-const CardsInCart = ({ selectedProducts, className, callbackRemove }) => {
+const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncreaseDecrease }) => {
+	// const [products, setProducts] = useState()
 	const addRemoveButton = 'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-2 ' +
 		'focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-base px-4 py-2 text-center ' +
 		'dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800' +
@@ -20,13 +21,16 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove }) => {
 
 	const table = {};
 	const uniqSelectedProducts = selectedProducts.filter(({id}) =>(!table[id] && (table[id] = 1)));
+	const count = (id) => {
+		console.log(id)
+	}
 
 	return (
 		<ul className={style.products + ' ' + className}>
 			{uniqSelectedProducts.map(item =>
 				<li className={style.product + ' flex justify-between'} key={item.id}>
 					<div className={style.content + ' flex'}>
-						<img src={item.productImage} alt={item.productTitle} className={style.img}/>
+						<Image width={540} height={404} src={item.productImage} alt={item.productTitle} className={style.img} />
 						<div className={style.descr + ' ml-5'}>
 							<div
 								className={style.title + ' ' + philosopher.className + ' mb-5'}
@@ -37,9 +41,21 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove }) => {
 
 					<div className={style.left + ' flex items-start'}>
 						<div className={style.count + ' flex items-center mr-5'}>
-							<button className={addRemoveButton + ' mr-2'}>-</button>
-							<input type="text" value={counter[item.id]} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-full pl-4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-							<button className={addRemoveButton + ' ml-2'}>+</button>
+							<button
+								className={addRemoveButton + ' mr-2'}
+								onClick={() => callbackIncreaseDecrease(item.id, 'increase') }
+							>-</button>
+
+							<input
+								onChange={() => count(item.id)}
+								type="text"
+								value={counter[item.id]}
+								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-full pl-4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+
+							<button
+								className={addRemoveButton + ' ml-2'}
+								onClick={() => callbackIncreaseDecrease(item.id, 'decrease') }
+							>+</button>
 						</div>
 						<div className={style.cost + ' mr-5 ' + philosopher.className}>{item.productCost} руб.</div>
 
