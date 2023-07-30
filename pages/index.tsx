@@ -6,13 +6,14 @@ import SectionFirst from '../components/core/sections/First/Section-first'
 import { useEffect, useState } from 'react'
 import useLocalStorage from '../hooks/use-local-storage'
 
-const Home: NextPage = ({ data }) => {
+const Home: NextPage = ({ data }: any) => {
     const [count, setCount] = useState(0)
     const [currentProductsList, setCurrentProductsList] = useLocalStorage('currentProductsList', [])
     const [selectedProducts, setSelectedProducts, remove] = useLocalStorage('selectedProducts', [])
     const [productCards, setProductCards] = useState(currentProductsList)
 
     const { productCard } = data.productsList
+    console.log('=', data)
     const sendToCart = id => {
         setSelectedProducts([...selectedProducts, currentProductsList.find(item => item.id === id)])
     }

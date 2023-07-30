@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 
-const useLocalStorage = (key, initialValue) => {
+const useLocalStorage = (key: string, initialValue: any) => {
 	const [state, setState] = useState(() => {
 		// Initialize the state
 		try {
@@ -15,7 +15,7 @@ const useLocalStorage = (key, initialValue) => {
 		}
 	})
 
-	const setValue = value => {
+	const setValue = (value: any) => {
 		try {
 			// If the passed value is a callback function,
 			//

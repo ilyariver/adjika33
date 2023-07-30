@@ -1,7 +1,7 @@
 import style from './Cart-button.module.scss'
 import Link from 'next/link'
 
-const CartButton = (data) => {
+const CartButton = (data: {count: number}) => {
 
 	return (
 		<Link href="/cart" className={style.cart}>

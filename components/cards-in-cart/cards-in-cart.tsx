@@ -4,14 +4,19 @@ import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncreaseDecrease }) => {
+const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncreaseDecrease }: {
+	selectedProducts: any[]
+	className: string
+	callbackRemove: (id: any) => void
+	callbackIncreaseDecrease: (id: any, type: string) => void
+}) => {
 	// const [products, setProducts] = useState()
 	const addRemoveButton = 'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-2 ' +
 		'focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-base px-4 py-2 text-center ' +
 		'dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800' +
 		'w-10 h-10'
 
-	const counter = selectedProducts.reduce((acc, item) => {
+	const counter = selectedProducts.reduce((acc: number, item) => {
 		if (!acc.hasOwnProperty(item.id)) {
 			acc[item.id] = 0;
 		}
@@ -19,9 +24,9 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncr
 		return acc;
 	}, {});
 
-	const table = {};
-	const uniqSelectedProducts = selectedProducts.filter(({id}) =>(!table[id] && (table[id] = 1)));
-	const count = (id) => {
+	const table: {id: number} = {id: 0};
+	const uniqSelectedProducts = selectedProducts.filter(({id}) =>(!table[id as keyof typeof table] && (table[id as keyof typeof table] = 1)));
+	const count = (id: number) => {
 		console.log(id)
 	}
 

@@ -1,7 +1,8 @@
 import style from './Section-cards.module.scss'
 import Card from '../../../../components/card/card'
+import { Cards } from '../../../../types/cards'
 
-export default function SectionCards(cards) {
+export default function SectionCards(cards: Cards) {
 	const { currentProductsList, sendToCart } = cards
 
 	return (

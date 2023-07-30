@@ -1,9 +1,10 @@
 import style from './Section-first.module.scss'
 import { Philosopher } from 'next/font/google'
 import Image from 'next/image'
+import { Section } from '../../../../types/section'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
-export default function SectionFirst(data) {
+export default function SectionFirst(data: Section) {
 	const { title, text , image } = data
 
 	return (

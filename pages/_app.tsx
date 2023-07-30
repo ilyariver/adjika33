@@ -1,13 +1,19 @@
 import '../styles/globals.scss'
 
-import App, { AppContext, AppInitialProps } from 'next/app'
+import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import Header from '../components/core/header/Header'
 import { Bellota } from 'next/font/google'
 import Footer from '../components/core/footer/Footer'
 import { useEffect, useState } from 'react'
 export const bellota = Bellota({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-function MyApp({ Component, pageProps, headerApi }) {
+type AppPropsWithLayout = AppProps & {
+    Component: any
+    pageProps: any
+    headerApi: any
+}
+
+function MyApp({ Component, pageProps, headerApi }: AppPropsWithLayout) {
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
         setIsClient(true)

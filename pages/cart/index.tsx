@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 	description: 'Ресторан кавказской кухни',
 }
 const Cart: FC = () => {
-	const [selectedProducts, setSelectedProducts] = useLocalStorage<Array<any>>('selectedProducts', [])
+	const [selectedProducts, setSelectedProducts] = useLocalStorage('selectedProducts', [])
 
 	const sum = selectedProducts.reduce((acc, item) => {
 		return acc += +item.productCost

@@ -2,9 +2,10 @@ import { FC } from 'react'
 import style from './Section-third.module.scss'
 import { Philosopher } from 'next/font/google'
 import Image from 'next/image'
+import { Section } from '../../../../types/section'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
-const SectionThird: FC = (data) => {
+const SectionThird: FC<Section> = (data) => {
 	const { image, title, text } = data
 
 	return (

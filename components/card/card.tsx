@@ -5,7 +5,13 @@ import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-const Card = ({ name, description, cost, image, onClick }) => {
+const Card = ({ name, description, cost, image, onClick }: {
+	name: string
+	description: string
+	cost: string
+	image: string
+	onClick: () => void
+}) => {
 
 
 	return (

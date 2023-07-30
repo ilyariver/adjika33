@@ -2,10 +2,11 @@ import { FC } from 'react'
 import style from './Footer.module.scss'
 import { Philosopher } from 'next/font/google'
 import Link from 'next/link'
+import { Contacts } from '../../../types/contacts'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-export default function Footer(headerApi) {
+export default function Footer(headerApi: Contacts) {
 	const { phoneNumber, location, linkPhoneNumber } = headerApi
 
 	return (

@@ -2,10 +2,11 @@ import style from './Header.module.scss'
 import Link from 'next/link'
 import { Philosopher } from 'next/font/google'
 import MainBtn from '../../../components/shared/button/Main-btn'
+import { Contacts } from '../../../types/contacts'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-export default function Header(headerApi) {
+export default function Header(headerApi: Contacts) {
 	const { headerText, phoneNumber, location, linkPhoneNumber } = headerApi
 
 	return (
