@@ -2,7 +2,7 @@ import style from './Button-order.module.scss'
 import { Philosopher } from 'next/font/google'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
-const ButtonOrder = (props: {onClick?: () => void, className: string}) => {
+const ButtonOrder = (props: {onClick?: () => void, className?: string}) => {
 	return (
 		<button className={style.button + ' ' + philosopher.className + ' ' + props.className} onClick={props.onClick}>
 			<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,7 @@ export default function getCities(query: string) {
 	const url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address';
 	const token = '5685f6c5c87b8e1c6c32d4ae3832ab091cf4be09';
 
-	const options = {
+	const options: RequestInit = {
 		method: 'POST',
 		mode: 'cors',
 		headers: {
