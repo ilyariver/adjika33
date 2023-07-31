@@ -35,13 +35,11 @@ const Home: NextPage = ({ data }: any) => {
 
             {/*<ModalDetails />*/}
             {(selectedProducts.length !== 0) && (<CartButton count={selectedProducts.length}/>)}
-            <button className="fixed bottom-5 right-5" onClick={() =>
-                {
-                    setCount(0)
-                    setSelectedProducts([])
-                    remove()
-                }
-            }>X</button>
+            {(selectedProducts.length !== 0) && <button className="fixed bottom-5 right-5" onClick={() => {
+                setCount(0)
+                setSelectedProducts([])
+                remove()
+            }}>x</button>}
         </>
     )
 }

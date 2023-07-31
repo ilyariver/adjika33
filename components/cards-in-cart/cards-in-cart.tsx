@@ -4,10 +4,13 @@ import Image from 'next/image'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
-const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncreaseDecrease }: {
+const CardsInCart = ({ counter, uniqSelectedProducts, count, selectedProducts, className, callbackRemove, callbackIncreaseDecrease }: {
+	counter: any
+	uniqSelectedProducts: any
 	selectedProducts: any[]
 	className: string
 	callbackRemove: (id: any) => void
+	count: (id: any) => void
 	callbackIncreaseDecrease: (id: any, type: string) => void
 }) => {
 	// const [products, setProducts] = useState()
@@ -15,20 +18,6 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncr
 		'focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-base px-4 py-2 text-center ' +
 		'dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800' +
 		'w-10 h-10'
-
-	const counter = selectedProducts.reduce((acc: number, item) => {
-		if (!acc.hasOwnProperty(item.id)) {
-			acc[item.id] = 0;
-		}
-		acc[item.id]++;
-		return acc;
-	}, {});
-
-	const table: {id: number} = {id: 0};
-	const uniqSelectedProducts = selectedProducts.filter(({id}) =>(!table[id as keyof typeof table] && (table[id as keyof typeof table] = 1)));
-	const count = (id: number) => {
-		console.log(id)
-	}
 
 	return (
 		<ul className={style.products + ' ' + className}>
@@ -48,7 +37,7 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncr
 						<div className={style.count + ' flex items-center mr-5'}>
 							<button
 								className={addRemoveButton + ' mr-2'}
-								onClick={() => callbackIncreaseDecrease(item.id, 'increase') }
+								onClick={() => callbackIncreaseDecrease(item, 'decrease') }
 							>-</button>
 
 							<input
@@ -59,7 +48,7 @@ const CardsInCart = ({ selectedProducts, className, callbackRemove, callbackIncr
 
 							<button
 								className={addRemoveButton + ' ml-2'}
-								onClick={() => callbackIncreaseDecrease(item.id, 'decrease') }
+								onClick={() => callbackIncreaseDecrease(item, 'increase') }
 							>+</button>
 						</div>
 						<div className={style.cost + ' mr-5 ' + philosopher.className}>{item.productCost} руб.</div>
