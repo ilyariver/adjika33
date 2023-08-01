@@ -1,6 +1,8 @@
 @import 'public/styles/scss/config/vars.scss';
+@import 'public/styles/scss/config/mixins.scss';
 
 $btnSize: 80px;
+$btnSizeSmall: 50px;
 
 .cart {
   position: fixed;
@@ -16,6 +18,17 @@ $btnSize: 80px;
   background-color: $cartBtnColor;
   border-radius: 200px;
   transition: transform 0.2s cubic-bezier(0.5, 0, 0.5, 3);
+
+  @include media(1460) {
+    width: $btnSizeSmall;
+    height: $btnSizeSmall;
+    min-width: $btnSizeSmall;
+    min-height: $btnSizeSmall;
+
+    & > svg {
+      width: 30px;
+    }
+  }
 
   &:hover {
     transform: scale(1.05);

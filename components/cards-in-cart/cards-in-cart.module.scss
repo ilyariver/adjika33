@@ -1,5 +1,6 @@
 @import '/public/styles/scss/config/vars.scss';
 @import '/public/styles/scss/config/functions.scss';
+@import '/public/styles/scss/config/mixins.scss';
 
 .products {
 
@@ -10,6 +11,11 @@
   background-color: darken($firstAccentColor, 2%);
   width: 100%;
   border-radius: 10px;
+  column-gap: 1.5rem;
+
+  @include media(580) {
+    flex-direction: column;
+  }
 
   &:not(:last-child) {
     margin-bottom: 20px;
@@ -17,12 +23,23 @@
 }
 
 .content {
-
+  @include media(870) {
+    margin-bottom: 30px;
+  }
 }
 
 .img {
   width: 250px;
   border-radius: 5px;
+
+  @include media(870) {
+    width: 200px;
+    height: fit-content;
+  }
+
+  @include media(450) {
+    width: 130px;
+  }
 }
 
 .descr {
@@ -30,7 +47,12 @@
 }
 
 .title {
+  font-size: 30px;
 
+  @include media(870) {
+    margin-bottom: 10px!important;
+    font-size: 25px;
+  }
 }
 
 .text {
@@ -38,17 +60,44 @@
 }
 
 .left {
+  @include media(870) {
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    margin-left: 10px;
+  }
 
+  @include media(470) {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.cost_wrap {
+  @include media(870) {
+    margin-bottom: 20px;
+  }
+
+  @include media(470) {
+    margin: 0 10px 0 0;
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }
 
 .cost {
   font-size: 20px;
+  white-space: nowrap;
 }
 
 .remove {
-
+  @include media(470) {
+    margin: 0 20px 0 0;
+  }
 }
 
 .count {
-
+  @include media(870) {
+    margin: 0;
+  }
 }

@@ -1,8 +1,13 @@
 @import '/public/styles/scss/config/vars.scss';
 @import '/public/styles/scss/config/functions.scss';
+@import '/public/styles/scss/config/mixins.scss';
 
 .cart {
   padding: 40px;
+
+  @include media(1060) {
+    padding: 25px 0;
+  }
 }
 
 .title {
@@ -25,6 +30,14 @@
     text-shadow: 0 -1.3px 0 #000000;
     -webkit-background-clip: text;
     font-weight: 700;
+
+    @include media(530) {
+      font-size: 40px;
+    }
+
+    @include media(400) {
+      font-size: 30px;
+    }
   }
 }
 
@@ -42,6 +55,15 @@
   margin-left: auto;
   width: 700px;
   font-size: 30px;
+
+  @include media(800) {
+    width: 100%;
+  }
+
+  @include media(450) {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
 }
 
 .between {
@@ -49,6 +71,10 @@
   width: 100%;
   height: 33px;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.28);
+
+  @include media(450) {
+    height: 23px;
+  }
 }
 
 .sum {
@@ -63,18 +89,34 @@
   background-color: darken($firstAccentColor, 2%);
   border-radius: 20px;
   column-gap: 3.5rem;
+
+  @include media(930) {
+    flex-direction: column-reverse;
+  }
 }
 
 .wrap {
   width: 50%;
+
+  @include media(930) {
+    width: 100%;
+  }
 }
 
 .label {
   font-size: 25px;
+
+   @include media(670) {
+     font-size: 20px;
+  }
 }
 
 .input {
   font-size: 20px;
+
+   @include media(670) {
+     font-size: 16px;
+  }
 }
 
 .stock {
@@ -82,6 +124,22 @@
   align-items: center;
   width: 50%;
   font-size: 40px;
+
+  @include media(930) {
+    margin-bottom: 50px;
+    width: 100%;
+  }
+
+  @include media(670) {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+}
+
+.send_btn {
+  @include media(670) {
+    width: 100%;
+  }
 }
 
 .error {

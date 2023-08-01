@@ -1,4 +1,5 @@
 @import 'public/styles/scss/config/functions.scss';
+@import 'public/styles/scss/config/mixins.scss';
 
 .cards {
   display: flex;
@@ -8,9 +9,48 @@
   margin: 0 auto;
   padding: 40px;
   column-gap: rem(0.5);
+
+  @include media(1650) {
+    width: 100%;
+  }
+
+  @include media(990) {
+    padding: 0 20px;
+  }
+}
+
+.title {
+  display: none;
+  padding: 0 0 20px;
+
+  @include media(970) {
+    display: flex;
+    align-items: center;
+    font-size: 100px;
+  }
+
+  @include media(670) {
+    font-size: 60px;
+  }
 }
 
 
 .empty_card {
   width: calc(100% / 4.2);
+
+  @include media(1300) {
+    width: calc(100% / 3 - 20px);
+  }
+
+  @include media(990) {
+    width: calc(100% / 3 - 10px);
+  }
+
+  @include media(970) {
+    width: calc(100% / 2 - 10px);
+  }
+
+  @include media(630) {
+    display: none;
+  }
 }

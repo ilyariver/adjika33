@@ -40,7 +40,7 @@ export default function Header(headerApi: Contacts) {
 					</div>
 				</Link>
 
-				<Link href="/#cards">
+				<Link href="/#cards" className={style.order_link}>
 					<MainBtn text="Заказ" className={style.order_btn} />
 				</Link>
 			</div>

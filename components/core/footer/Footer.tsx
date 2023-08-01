@@ -12,7 +12,7 @@ export default function Footer(headerApi: Contacts) {
 	return (
 		<footer className={style.footer}>
 			<div className="footer__container">
-				<div className="flex pb-20">
+				<div className={'flex pb-20 ' + style.columns}>
 					<div className={style.logo}>
 						<Link href="/" className={style.link}>
 							<svg width="106" height="116" viewBox="0 0 106 116" fill="none" xmlns="http://www.w3.org/2000/svg">

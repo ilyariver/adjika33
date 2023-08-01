@@ -1,4 +1,5 @@
 @import 'public/styles/scss/config/vars.scss';
+@import 'public/styles/scss/config/mixins.scss';
 
 .button {
   display: flex;
@@ -19,4 +20,8 @@
 .text {
   margin-left: 22px;
   padding-right: 27px;
+
+  @include media(630) {
+    margin: 0 auto;
+  }
 }

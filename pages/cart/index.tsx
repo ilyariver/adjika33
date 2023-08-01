@@ -250,7 +250,7 @@ const Cart: FC = () => {
 			</div>}
 
 			<div className="cart__container">
-				<h2 className={'mb-5 ' + style.title + ' ' + philosopher.className}>Заказ</h2>
+				<h2 className={style.title + ' mb-5 ' + philosopher.className}>Заказ</h2>
 				<div className="border-b opacity-10 mb-5"></div>
 
 				{selectedProducts.length === 0 && <div className={style.empty}>
@@ -352,7 +352,7 @@ const Cart: FC = () => {
 
 						<button
 							type="submit"
-							className={'text-white bg-blue-400 dark:bg-blue-500 font-medium rounded-lg px-5 py-2.5 text-center ' + style.label}
+							className={'text-white bg-blue-400 dark:bg-blue-500 font-medium rounded-lg px-5 py-2.5 text-center ' + style.label + ' ' + style.send_btn}
 						>Оформить заказ</button>
 					  </div>
 

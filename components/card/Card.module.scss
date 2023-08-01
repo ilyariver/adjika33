@@ -3,8 +3,28 @@
 .card {
   width: calc(100% / 4.2);
 
+  @include media(1300) {
+    width: calc(100% / 3 - 20px);
+  }
+
+  @include media(990) {
+    width: calc(100% / 3 - 10px);
+  }
+
+  @include media(970) {
+    width: calc(100% / 2 - 10px);
+  }
+
+  @include media(630) {
+    width: calc(100%);
+  }
+
   &:nth-last-child(n+5) {
     margin-bottom: 100px;
+
+    @include media(1300) {
+      margin-bottom: 50px;
+    }
   }
 }
 
@@ -54,15 +74,30 @@
   min-height: 70px;
   font-size: 15px;
   @include lineClamp(3);
+
+  @include media(630) {
+    min-height: auto;
+  }
 }
 
 .bottom {
   display: flex;
   justify-content: space-between;
+
+  @include media(630) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .cost {
   display: flex;
   align-items: center;
   font-size: 20px;
+
+  @include media(630) {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
 }

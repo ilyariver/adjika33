@@ -9,6 +9,11 @@
   background-size: cover;
   width: 100%;
 
+  @include media(700) {
+    background-position-x: right;
+    padding: 0 0 160px;
+  }
+
   & .header__container {
     padding: 50px 0;
   }
@@ -45,6 +50,10 @@
   justify-content: space-between;
   padding: 20px 0 40px;
   z-index: 2;
+
+  @include media(700) {
+    justify-content: center;
+  };
 }
 
 .left_list {
@@ -57,6 +66,13 @@
 
 .right {
   margin-left: auto;
+
+  @include media(700) {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  };
 }
 
 .phone {
@@ -72,6 +88,19 @@
 .big_text {
   font-size: 36px;
   line-height: 1.2;
+
+  @include media(1400) {
+    font-size: 25px;
+  };
+
+  @include media(980) {
+    width: 40%;
+    font-size: 25px;
+  };
+
+  @include media(700) {
+    display: none;
+  };
 }
 
 .link {
@@ -80,6 +109,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+
+  @include media(700){
+    transform: translate(-50%, -40%);
+  }
 }
 
 .logo {
@@ -88,6 +121,16 @@
   & > svg {
     margin: 0 auto;
     //filter: drop-shadow(0 0 1px rgb(255, 255, 255)) drop-shadow(0 0 20px #f10000);
+
+    @include media(700) {
+      width: 150px;
+    }
+  }
+}
+
+.order_link {
+  @include media(700) {
+    display: none;
   }
 }
 
