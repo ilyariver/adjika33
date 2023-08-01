@@ -13,7 +13,6 @@ const Home: NextPage = ({ data }: any) => {
     const [productCards, setProductCards] = useState(currentProductsList)
 
     const { productCard } = data.productsList
-    console.log('=', data)
     const sendToCart = id => {
         setSelectedProducts([...selectedProducts, currentProductsList.find(item => item.id === id)])
     }
@@ -25,7 +24,7 @@ const Home: NextPage = ({ data }: any) => {
     useEffect(() => {
         saveToLocalStorage()
         setProductCards(productCard)
-    }, [])
+    }, [data])
 
     return (
         <>
