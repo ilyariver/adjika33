@@ -3,10 +3,11 @@ import SectionCards from '../components/core/sections/Cards/Section-cards'
 import SectionThird from '../components/core/sections/Third/Section-third'
 import CartButton from '../components/cart-button/Cart-button'
 import SectionFirst from '../components/core/sections/First/Section-first'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useLocalStorage from '../hooks/use-local-storage'
 
 const Home: NextPage = ({ data }: any) => {
+    const [scrollY, setScrollY] = useState(0);
     const [count, setCount] = useState(0)
     const [currentProductsList, setCurrentProductsList] = useLocalStorage('currentProductsList', [])
     const [selectedProducts, setSelectedProducts, remove] = useLocalStorage('selectedProducts', [])
@@ -18,13 +19,27 @@ const Home: NextPage = ({ data }: any) => {
     }
 
     const saveToLocalStorage = () => {
-        setCurrentProductsList(productCards)
+        setCurrentProductsList([])
+        setCurrentProductsList([...productCards])
     }
 
     useEffect(() => {
         saveToLocalStorage()
         setProductCards(productCard)
-    }, [data])
+    }, [scrollY])
+
+    const onScroll = useCallback(event => {
+        setScrollY(event);
+    }, []);
+
+    useEffect(() => {
+        //add eventlistener to window
+        window.addEventListener("scroll", onScroll, { passive: true });
+        // remove event on unmount to prevent a memory leak with the cleanup
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        }
+    }, []);
 
     return (
         <>
