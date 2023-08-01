@@ -35,7 +35,7 @@ MyApp.getInitialProps = async (
     context: AppContext
 ): Promise<any & AppInitialProps> => {
     const ctx = await App.getInitialProps(context)
-    const res = await fetch(`https://api.adjika33.ru/wp-json/wp/v2/pages/54`)
+    const res = await fetch(`https://api.adjika33.ru/wp-json/wp/v2/pages/54?acf_format=standard`)
     const fullData = await res.json()
     if (!fullData) {
         return {

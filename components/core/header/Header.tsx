@@ -7,10 +7,10 @@ import { Contacts } from '../../../types/contacts'
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
 export default function Header(headerApi: Contacts) {
-	const { headerText, phoneNumber, location, linkPhoneNumber } = headerApi
+	const { header_image, headerText, phoneNumber, location, linkPhoneNumber } = headerApi
 
 	return (
-		<header className={style.header}>
+		<header className={style.header} style={{backgroundImage: 'url(' + header_image.url + ')'}}>
 			<div className="header__container">
 
 				<div className={style.top}>
