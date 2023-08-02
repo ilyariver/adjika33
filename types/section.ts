@@ -1,7 +1,9 @@
 import { Image } from './image'
 
 export interface Section {
-	image: Image & string
+	image?: Image & string
+	image1?: Image & string
+	image2?: Image & string
 	title: string
 	text: string
 }
