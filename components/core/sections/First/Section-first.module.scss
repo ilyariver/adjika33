@@ -51,11 +51,11 @@
 
 .img {
   border-radius: 30px;
-  filter: grayscale(100%);
-  transition: filter 0.5s cubic-bezier(.5, 0, .5, 3);
+  filter: grayscale(10%);
+  //transition: filter 0.5s cubic-bezier(.5, 0, .5, 3);
 
   @include media(850) {
-    animation: pulse 3s linear infinite;
+    //animation: pulse 3s linear infinite;
   }
 }
 

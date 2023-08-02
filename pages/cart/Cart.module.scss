@@ -203,6 +203,20 @@
   }
 }
 
+.notes {
+  font-size: 14px;
+
+  & > li {
+    color: #7c7c7c;
+
+    &:before {
+      content: "–"; /* en dash */
+      position: absolute;
+      margin-left: -1.1em;
+    }
+  }
+}
+
 .error {
   position: absolute;
   right: 5px;
