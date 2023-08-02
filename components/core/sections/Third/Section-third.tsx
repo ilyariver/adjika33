@@ -17,8 +17,12 @@ const SectionThird: FC<Section> = (data) => {
 					</div>
 
 					<div className={style.right}>
-						<h2 className={style.title + ' ' + philosopher.className}>{ title }</h2>
-						<p className={style.text}>{ text }</p>
+						<h2 className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
+							__html: title
+						}}></h2>
+						<p className={style.text} dangerouslySetInnerHTML={{
+							__html: text
+						}}></p>
 					</div>
 				</div>
 			</div>

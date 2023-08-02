@@ -43,6 +43,10 @@
 
 .text {
   line-height: 2.2;
+
+  @include media(700) {
+    margin-bottom: 40px;
+  }
 }
 
 .img {

@@ -41,7 +41,7 @@ export default function Header(headerApi: Contacts) {
 				</Link>
 
 				<Link href="/#cards" className={style.order_link}>
-					<MainBtn text="Заказ" className={style.order_btn} />
+					<MainBtn text="Посмотреть меню" className={style.order_btn} />
 				</Link>
 			</div>
 		</header>

@@ -204,6 +204,8 @@ const Cart: FC = () => {
 		}
 	}, [spinner]);
 
+	const inputStyles = 'bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+
 	return (
 		<div className={style.cart}>
 			{
@@ -297,7 +299,7 @@ const Cart: FC = () => {
 							<input
 								type="text"
 								id="first_name"
-								className={'bg-gray-50 w-1/2 border border-gray-300 mb-5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ' + style.label}
+								className={inputStyles + ' ' + style.label}
 								value={name}
 								onInput={changeNameField}
 								required
@@ -307,7 +309,7 @@ const Cart: FC = () => {
 						<div className="relative w-full mb-10">
 							<label htmlFor="phone" className={philosopher.className + ' ' + style.label}>Ваш телефон:</label>
 							<Input
-								className={'mb-5 bg-gray-50 w-1/2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ' + style.label}
+								className={inputStyles + ' ' + style.label}
 								minLength="16"
 								maxLength="16"
 								required
@@ -331,7 +333,7 @@ const Cart: FC = () => {
 							<input
 								type="text"
 								id="simple-search"
-								className={'bg - gray - 50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ' + style.label}
+								className={inputStyles + ' ' + style.label}
 								required
 								value={address}
 								onInput={searchAddresses}
