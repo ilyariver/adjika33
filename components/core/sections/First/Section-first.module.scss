@@ -18,6 +18,7 @@
   column-gap: rem(30);
 
   @include media(850) {
+    align-items: flex-start;
     flex-direction: column;
   }
 }
@@ -26,7 +27,7 @@
   flex-basis: 40%;
 
   @include media(850) {
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
   }
 }
 
@@ -38,6 +39,10 @@
   margin-bottom: 30px;
   line-height: 1.1;
   font-size: 48px;
+
+  @include media(850) {
+    font-size: 34px;
+  }
 }
 
 .text {

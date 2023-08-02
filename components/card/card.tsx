@@ -17,7 +17,7 @@ const Card = ({ name, description, cost, image, onClick }: {
 	return (
 		<div className={style.card + ' ' + (cost === '0' ? style.disable : '')}>
 			<div className={style.top}>
-				<Image width={540} height={404} src={image} alt={name} className={style.img } />
+				<Image width={800} height={404} src={image} alt={name} className={style.img } />
 			</div>
 			<div className={style.middle}>
 				<h3 className={`${style.name} ${philosopher.className}`}>{ name }</h3>
