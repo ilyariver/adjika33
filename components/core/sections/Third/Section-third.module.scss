@@ -4,6 +4,10 @@
 .section {
   padding: 40px 0 50px;
 
+  @include media(700) {
+    padding: 40px 0 0;
+  }
+
   &:hover {
     .img {
       filter: grayscale(0);
