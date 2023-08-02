@@ -350,9 +350,9 @@ const Cart: FC = () => {
 							className={'text-white mb-5 bg-blue-400 dark:bg-blue-500 font-medium rounded-lg px-5 py-2.5 text-center ' + style.label + ' ' + style.send_btn}
 						>Оформить заказ</button>
 						<ul className={style.notes}>
-							<li>Доставка осуществляется с 12 до 22 (мск)</li>
-							<li>От 1500 руб. бесплатно, иначе оплачивается курьеру Яндекс самостоятельно</li>
-							<li>Самовывоз - бесплатно</li>
+							<li>Доставка осуществляется с 12 до 22 (мск).</li>
+							<li>От 1500 руб. бесплатно, иначе оплачивается курьеру Яндекс самостоятельно.</li>
+							<li>Самовывоз - бесплатно.</li>
 						</ul>
 					  </div>
 
