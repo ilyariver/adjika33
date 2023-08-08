@@ -355,3 +355,5 @@ const Cart: FC = () => {
 		</div>
 	)
 }
+
+export default Cart

@@ -15,24 +15,20 @@ const Home: NextPage = ({ data }: any) => {
     const [selectProducts, setSelectProducts] = useState([])
     const [productList, setProductList] = useState([])
 
-    const { productCard } = data.productsList
+
     const sendToCart = id => {
         setSelectedProducts([...selectedProducts, currentProductsList.find(item => item.id === id)])
     }
 
-    const saveToLocalStorage = () => {
-        setCurrentProductsList([])
-        setCurrentProductsList([...productCards])
-    }
-
-    useEffect(() => {
-        saveToLocalStorage()
-        setProductCards(productCard)
-    }, [scrollY])
-
     const onScroll = useCallback(event => {
         setScrollY(event);
     }, []);
+
+    useEffect(() => {
+        setCurrentProductsList([])
+        setCurrentProductsList([...productCards])
+        setProductCards(data.productsList.productCard)
+    }, [onScroll])
 
     useEffect(() => {
         //add eventlistener to window
