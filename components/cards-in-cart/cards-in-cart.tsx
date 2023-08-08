@@ -1,6 +1,7 @@
 import style from './cards-in-cart.module.scss'
 import { Philosopher } from 'next/font/google'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
@@ -13,11 +14,17 @@ const CardsInCart = ({ counter, uniqSelectedProducts, count, selectedProducts, c
 	count: (id: any) => void
 	callbackIncreaseDecrease: (id: any, type: string) => void
 }) => {
-	// const [products, setProducts] = useState()
+
+	const [countProduct, setCountProduct] = useState(0)
+
 	const addRemoveButton = 'text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-2 ' +
 		'focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-base px-4 py-2 text-center ' +
 		'dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800' +
 		'w-10 h-10'
+
+	useEffect(() => {
+		count(countProduct)
+	}, [countProduct])
 
 	return (
 		<ul className={style.products + ' ' + className}>
@@ -41,10 +48,12 @@ const CardsInCart = ({ counter, uniqSelectedProducts, count, selectedProducts, c
 							>-</button>
 
 							<input
-								onChange={() => count(item.id)}
+								onChange={() => setCountProduct(item.id)}
 								type="text"
 								value={counter[item.id]}
-								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-full pl-4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+								className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-10 h-full pl-4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+								required
+							/>
 
 							<button
 								className={addRemoveButton + ' ml-2'}

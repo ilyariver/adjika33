@@ -12,9 +12,9 @@ export default function SectionFirst(data: Section) {
 			<div className="section__container">
 				<div className={style.wrap}>
 					<div className={style.left}>
-						<h2 className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
+						<div className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
 							__html: title
-						}}></h2>
+						}}></div>
 						<p className={style.text}>{ text }</p>
 					</div>
 					<div className={style.right}>

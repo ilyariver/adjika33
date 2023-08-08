@@ -28,26 +28,25 @@ const Cart: FC = () => {
 	const [listAddresses, setListAddresses] = useState([])
 	const [phoneValidate, setPhoneValidate] = useState<boolean>(false)
 	const [counter, setCounter] = useState<any>({})
+	const [selectProduct, setSelectProduct] = useState([])
 
 	const router = useRouter();
 
 
 
-	const sum = selectedProducts.reduce((acc, item) => {
+	const sum = selectProduct.reduce((acc, item) => {
 		return acc += +item.productCost
 	}, 0)
 
 	const callbackRemove = id => {
 		setSelectedProducts([])
-		setSelectedProducts(selectedProducts.filter(item => item.id !== id))
+		setSelectedProducts(selectProduct.filter(item => item.id !== id))
 	}
 
 	const table: {id: number} = {id: 0};
-	const uniqSelectedProducts = selectedProducts.filter(({id}) =>
+	const uniqSelectedProducts = selectProduct.filter(({id}) =>
 		(!table[id as keyof typeof table] && (table[id as keyof typeof table] = 1)));
-	const count = (id: number) => {
-		console.log(id)
-	}
+	const count = () => {}
 
 	const callbackIncreaseDecrease = (product: Card, type: 'increase' | 'decrease') => {
 		switch (type) {
@@ -75,28 +74,12 @@ const Cart: FC = () => {
 	const searchAddresses = (e: any) => {
 		let targetValue = ''
 		targetValue = e.target.value
-		const widthPrefix = inputSlug(targetValue)
-		const data = getCities(widthPrefix)
+		const data = getCities(targetValue)
 
 		data.then(res => {
 			setListAddresses(res.suggestions)
 		})
-		setAddress(widthPrefix)
-	}
-	let newText = ''
-
-	const inputSlug = (text) => {
-		if (text.includes('г. Владимир ')) {
-			text = text.split('г. Владимир ').join('')
-		}
-		newText += text
-
-		if (text) {
-			text = 'г. Владимир ' + newText;
-		} else {
-			text = null;
-		}
-		return text
+		setAddress(targetValue)
 	}
 
 	const checkAddress = (str: string) => {
@@ -209,6 +192,10 @@ const Cart: FC = () => {
 		}
 	}, [spinner, toast]);
 
+	useEffect(() => {
+		setSelectProduct(selectedProducts)
+	}, [selectedProducts])
+
 	const inputStyles = 'bg-transparent border border-gray-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
 
 	return (
@@ -248,7 +235,7 @@ const Cart: FC = () => {
 				<h2 className={style.title + ' mb-5 ' + philosopher.className}>Заказ</h2>
 				<div className="border-b opacity-10 mb-5"></div>
 
-				{selectedProducts.length === 0 && <div className={style.empty}>
+				{selectProduct.length === 0 && <div className={style.empty}>
 					<div className={style.empty_text}>Корзина пуста...</div>
 					<Link
 					  href="/#cards"
@@ -256,11 +243,11 @@ const Cart: FC = () => {
 					>Оформить заказ</Link>
 				</div>}
 
-				{selectedProducts.length !== 0 && <>
+				{selectProduct.length !== 0 && <>
 					<CardsInCart
 					  callbackRemove={callbackRemove}
 					  callbackIncreaseDecrease={callbackIncreaseDecrease}
-					  selectedProducts={selectedProducts}
+					  selectedProducts={selectProduct}
 					  counter={counter}
 					  count={count}
 					  uniqSelectedProducts={uniqSelectedProducts}
@@ -329,6 +316,7 @@ const Cart: FC = () => {
 								className={inputStyles + ' ' + style.label}
 								required
 								value={address}
+								placeholder="Название улицы..."
 								onInput={searchAddresses}
 							/>
 
@@ -367,5 +355,3 @@ const Cart: FC = () => {
 		</div>
 	)
 }
-
-export default Cart

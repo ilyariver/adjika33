@@ -4,7 +4,6 @@ import App, { AppContext, AppInitialProps, AppProps } from 'next/app'
 import Header from '../components/core/header/Header'
 import { Bellota } from 'next/font/google'
 import Footer from '../components/core/footer/Footer'
-import { useEffect, useState } from 'react'
 export const bellota = Bellota({ subsets: ['cyrillic'], weight: ['400', '700'] })
 
 type AppPropsWithLayout = AppProps & {
@@ -14,18 +13,12 @@ type AppPropsWithLayout = AppProps & {
 }
 
 function MyApp({ Component, pageProps, headerApi }: AppPropsWithLayout) {
-    const [isClient, setIsClient] = useState(false)
-    useEffect(() => {
-        setIsClient(true)
-    }, [])
   return (
-      <>
-          {isClient && (<div className={bellota.className}>
-              <Header {...headerApi} />
-              <Component {...pageProps} />
-              <Footer {...headerApi} />
-          </div>)}
-      </>
+      <div className={bellota.className}>
+          <Header {...headerApi} />
+          <Component {...pageProps} />
+          <Footer {...headerApi} />
+      </div>
   )
 }
 

@@ -39,12 +39,12 @@ const SectionThird: FC<Section> = (data) => {
 					</div>
 
 					<div className={style.right}>
-						<h2 className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
+						<div className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
 							__html: title
-						}}></h2>
-						<p className={style.text} dangerouslySetInnerHTML={{
+						}}></div>
+						<div className={style.text} dangerouslySetInnerHTML={{
 							__html: text
-						}}></p>
+						}}></div>
 					</div>
 				</div>
 			</div>

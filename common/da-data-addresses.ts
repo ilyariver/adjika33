@@ -10,7 +10,12 @@ export default function getCities(query: string) {
 			'Accept': 'application/json',
 			'Authorization': 'Token ' + token
 		},
-		body: JSON.stringify({query: query})
+		body: JSON.stringify({
+			query,
+			locations: [{
+				city: 'Владимир'
+			}]
+		})
 	}
 
 	return fetch(url, options)

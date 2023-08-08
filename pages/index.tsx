@@ -12,6 +12,8 @@ const Home: NextPage = ({ data }: any) => {
     const [currentProductsList, setCurrentProductsList] = useLocalStorage('currentProductsList', [])
     const [selectedProducts, setSelectedProducts, remove] = useLocalStorage('selectedProducts', [])
     const [productCards, setProductCards] = useState(currentProductsList)
+    const [selectProducts, setSelectProducts] = useState([])
+    const [productList, setProductList] = useState([])
 
     const { productCard } = data.productsList
     const sendToCart = id => {
@@ -41,15 +43,24 @@ const Home: NextPage = ({ data }: any) => {
         }
     }, []);
 
+
+    useEffect(() => {
+        setSelectProducts(selectedProducts)
+    }, [selectedProducts])
+
+    useEffect(() => {
+        setProductList(currentProductsList)
+    }, [currentProductsList])
+
     return (
         <>
             <SectionFirst { ...data.firstSection } />
-            <SectionCards currentProductsList={currentProductsList} sendToCart={sendToCart} />
+            <SectionCards currentProductsList={productList} sendToCart={sendToCart} />
             <SectionThird { ...data.thirdSection } />
 
             {/*<ModalDetails />*/}
-            {(selectedProducts.length !== 0) && (<CartButton count={selectedProducts.length}/>)}
-            {(selectedProducts.length !== 0) && <button className="fixed bottom-5 right-5" onClick={() => {
+            {(selectProducts.length !== 0) && (<CartButton count={selectProducts.length}/>)}
+            {(selectProducts.length !== 0) && <button className="fixed bottom-5 right-5" onClick={() => {
                 setCount(0)
                 setSelectedProducts([])
                 remove()
