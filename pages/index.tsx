@@ -28,7 +28,7 @@ const Home: NextPage = ({ data }: any) => {
         setCurrentProductsList([])
         setCurrentProductsList([...productCards])
         setProductCards(data.productsList.productCard)
-    }, [onScroll])
+    }, [scrollY])
 
     useEffect(() => {
         //add eventlistener to window
