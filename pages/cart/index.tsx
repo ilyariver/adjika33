@@ -105,7 +105,7 @@ const Cart: FC = () => {
 			setPhoneValidate(true)
 		} else {
 			setPhoneValidate(false)
-			sendMessageToTelegram(data)
+			return sendMessageToTelegram(data)
 		}
 	}
 
@@ -137,13 +137,14 @@ const Cart: FC = () => {
 			text: message
 		})
 			.then(res => {
-				ym(94630142,'reachGoal','order')
 				setToast(true)
 				clearAll()
 				const replace = setTimeout(() => {
 					router.push('/');
 					clearTimeout(replace)
 				}, 4000)
+
+				return `ym(94630142,'reachGoal','order')`
 			})
 			.catch(error => {
 				console.error(error.message)
