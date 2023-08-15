@@ -25,9 +25,9 @@ export default function Header(headerApi: Contacts) {
 				</div>
 
 				<div  className={`${ philosopher.className } ${ style.body }`}>
-					<h1 className={style.big_text} dangerouslySetInnerHTML={{
+					<div className={style.big_text} dangerouslySetInnerHTML={{
 						__html: headerText
-					}}></h1>
+					}}></div>
 				</div>
 
 				<Link href="/" className={style.link}>
