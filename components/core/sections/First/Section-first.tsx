@@ -11,12 +11,12 @@ export default function SectionFirst(data: Section) {
 		<section className={style.section}>
 			<div className="section__container">
 				<div className={style.wrap}>
-					<div className={style.left}>
+					{title && <div className={style.left}>
 						<div className={style.title + ' ' + philosopher.className} dangerouslySetInnerHTML={{
 							__html: title
 						}}></div>
-						<p className={style.text}>{ text }</p>
-					</div>
+						<p className={style.text}>{text}</p>
+					</div>}
 					<div className={style.right}>
 						<Image width="800" height="800" src={image.url} alt={image.alt} className={style.img} />
 					</div>
