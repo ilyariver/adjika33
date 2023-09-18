@@ -31,11 +31,13 @@ const SectionThird: FC<Section> = (data) => {
 				<Image width="800" height="800" src={img} className={style.view_image} alt="меню"/>
 			</div>}
 
-			<div className="section__container">
+			{image1 && <div className="section__container">
 				<div className={style.wrap}>
 					<div className={style.left}>
-						<Image width="800" height="800" src={image1} className={style.img} alt="меню" onClick={() => openView(image1)}/>
-						<Image width="800" height="800" src={image2} className={style.img} alt="меню" onClick={() => openView(image2)}/>
+						<Image width="800" height="800" src={image1} className={style.img} alt="меню"
+							   onClick={() => openView(image1)}/>
+						<Image width="800" height="800" src={image2} className={style.img} alt="меню"
+							   onClick={() => openView(image2)}/>
 					</div>
 
 					<div className={style.right}>
@@ -47,7 +49,7 @@ const SectionThird: FC<Section> = (data) => {
 						}}></div>
 					</div>
 				</div>
-			</div>
+			</div>}
 		</section>
 	);
 }
