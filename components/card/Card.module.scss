@@ -70,8 +70,12 @@
 
 .name {
   margin-bottom: 15px;
+  height: 60px;
   font-size: 20px;
   @include lineClamp(2);
+  @include media(630) {
+    height: auto;
+  }
 }
 
 .description {
