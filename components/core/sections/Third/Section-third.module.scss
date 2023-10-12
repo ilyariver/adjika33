@@ -10,7 +10,7 @@
 
   &:hover {
     .img {
-      filter: grayscale(0);
+      //filter: grayscale(0);
 
     }
   }
@@ -104,8 +104,8 @@
 
 .img {
   border-radius: 30px;
-  filter: grayscale(100%);
-  transition: filter 0.5s cubic-bezier(.5, 0, .5, 3);
+  //filter: grayscale(100%);
+  //transition: filter 0.5s cubic-bezier(.5, 0, .5, 3);
   max-width: 50%;
 
   @include media(1185) {
@@ -119,7 +119,7 @@
       margin-bottom: 20px;
     }
 
-    animation: pulse 2s linear infinite;
+    //animation: pulse 2s linear infinite;
   }
 }
 
