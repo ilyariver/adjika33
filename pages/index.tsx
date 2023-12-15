@@ -5,6 +5,7 @@ import CartButton from '../components/cart-button/Cart-button'
 import SectionFirst from '../components/core/sections/First/Section-first'
 import { useCallback, useEffect, useState } from 'react'
 import useLocalStorage from '../hooks/use-local-storage'
+import SectionFourth from "../components/core/sections/Fourth/Section-fourth";
 
 const Home: NextPage = ({ data }: any) => {
     const [scrollY, setScrollY] = useState(0);
@@ -53,6 +54,7 @@ const Home: NextPage = ({ data }: any) => {
             <SectionFirst { ...data.firstSection } />
             <SectionCards currentProductsList={productList} sendToCart={sendToCart} />
             <SectionThird { ...data.thirdSection } />
+            <SectionFourth { ...data.fourthSection } />
 
             {/*<ModalDetails />*/}
             {(selectProducts.length !== 0) && (<CartButton count={selectProducts.length}/>)}
@@ -74,15 +76,17 @@ export async function getServerSideProps() {
             notFound: true
         }
     }
-    const firstSection = fullData[2].acf
-    const productsList = fullData[1].acf
-    const thirdSection = fullData[0].acf
-    const contacts = fullData[3].acf
+    const productsList = fullData[2].acf
+    const firstSection = fullData[3].acf
+    const thirdSection = fullData[1].acf
+    const fourthSection = fullData[0].acf
+    const contacts = fullData[4].acf
     const dataAcf = {
         firstSection,
         productsList,
         thirdSection,
-        contacts
+        contacts,
+        fourthSection
     }
 
     return {
