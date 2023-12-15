@@ -2,10 +2,10 @@ import { FC, useEffect, useState } from 'react'
 import style from './Section-fourth.module.scss'
 import { Philosopher } from 'next/font/google'
 import Image from 'next/image'
-import { Section } from '../../../../types/section'
+import {Fourth} from "../../../../types/fourth";
 
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
-const SectionFourth: FC<Section> = (data) => {
+const SectionFourth: FC<Fourth> = (data) => {
 	const [previewImg, setPreviewImg] = useState<string>(null);
 	const { title, photos } = data
 
@@ -21,6 +21,7 @@ const SectionFourth: FC<Section> = (data) => {
 				<div className={style.photos}>
 					{photos.map(photo =>
 						<Image
+							key={photo.url}
 							width="250"
 							height="200"
 							src={photo.url}
