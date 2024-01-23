@@ -6,7 +6,8 @@ import { Section } from '../../../../types/section'
 const philosopher = Philosopher({ subsets: ['cyrillic'], weight: ['400', '700'] })
 export default function SectionFirst(data: Section) {
 	const { title, text , image, centerImage } = data
-
+	console.log('centerImage', centerImage);
+	
 	return (
 		<section className={style.section}>
 			<div className="section__container">
@@ -17,9 +18,9 @@ export default function SectionFirst(data: Section) {
 						}}></div>
 						<p className={style.text}>{text}</p>
 					</div>}
-					<div className={style.right}>
+					{image.url && <div className={style.right}>
 						<Image width="800" height="800" src={image.url} alt={image.alt} className={style.img} />
-					</div>
+					</div>}
 				</div>
 
 				{centerImage && <div className={style.centerImage}>
