@@ -346,10 +346,10 @@ const Cart: FC = () => {
 													</ul>
 												</div>
 
-												<div className={philosopher.className + ' ' + style.stock}>
-													При заказе от
-													1500 руб. морс в подарок
-												</div>
+												{/*<div className={philosopher.className + ' ' + style.stock}>*/}
+												{/*	При заказе от*/}
+												{/*	1500 руб. морс в подарок*/}
+												{/*</div>*/}
 											</form>
 
 										</>}
